@@ -1,7 +1,7 @@
-# How To Optimize Gemm wiki pages. 如何优化Gemm wiki页面
+# How To Optimize Gemm. 如何优化通用矩阵乘法
 https://github.com/flame/how-to-optimize-gemm/wiki
 
-Copyright by Prof. Robert van de Geijn (rvdg@cs.utexas.edu). 版权所有Robert van de Geijn教授(rvdg@cs.utexas.edu). 美国德克萨斯大学计算机科学系
+Copyright by Prof. Robert van de Geijn (rvdg@cs.utexas.edu). 版权归Robert van de Geijn教授(rvdg@cs.utexas.edu)所有. 美国德克萨斯大学计算机科学系
 
 Adapted to Github Markdown Wiki by Jianyu Huang (jianyu@cs.utexas.edu). 黄建宇改编自Github Markdown Wiki(jianyu@cs.utexas.edu).
 
@@ -12,11 +12,11 @@ Adapted to Github Markdown Wiki by Jianyu Huang (jianyu@cs.utexas.edu). 黄建�
   * [References](../../wiki#references)参考文献
   * [Set Up](../../wiki#set-up)建立
   * [Step-by-step optimizations](../../wiki#step-by-step-optimizations)逐步优化
-  * [Computing four elements of C at a time](../../wiki#computing-four-elements-of-c-at-a-time)一次计算C的四个元素
+  * [Computing four elements of C at a time](../../wiki#computing-four-elements-of-c-at-a-time)一次计算C矩阵的四个元素
     * [Hiding computation in a subroutine](../../wiki#hiding-computation-in-a-subroutine)在子程序中隐藏计算
     * [Computing four elements at a time](../../wiki#computing-four-elements-at-a-time)一次计算四个元素
     * [Further optimizing](../../wiki#further-optimizing)进一步优化
-  * [Computing a 4 x 4 block of C at a time](../../wiki#computing-a-4-x-4-block-of-c-at-a-time)一次计算一个4 x 4的C块
+  * [Computing a 4 x 4 block of C at a time](../../wiki#computing-a-4-x-4-block-of-c-at-a-time)一次计算一个4 x 4的C矩阵块
     * [Repeating the same optimizations](../../wiki#repeating-the-same-optimizations)重复相同的优化
     * [Further optimizing](../../wiki#further-optimizing-1)进一步优化
     * [Blocking to maintain performance](../../wiki#blocking-to-maintain-performance)分块以维持性能
