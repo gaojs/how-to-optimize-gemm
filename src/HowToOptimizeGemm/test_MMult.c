@@ -1,5 +1,4 @@
 #include <stdio.h>
-// #include <malloc.h>
 #include <stdlib.h>
 
 #include "parameters.h"
@@ -9,7 +8,6 @@ void MY_MMult(int, int, int, double *, int, double *, int, double *, int );
 void copy_matrix(int, int, double *, int, double *, int );
 void random_matrix(int, int, double *, int);
 double compare_matrices( int, int, double *, int, double *, int );
-
 double dclock();
 
 int main()
@@ -19,7 +17,7 @@ int main()
   double *a, *b, *c, *c_ref, *c_old;    
   
   printf( "MY_MMult = [\n" );    
-  for ( p=PFIRST; p<=PLAST; p+=PINC ){
+  for ( p=PFIRST; p<PLAST; p+=PINC ){
     m = ( M == -1 ? p : M );
     n = ( N == -1 ? p : N );
     k = ( K == -1 ? p : K );

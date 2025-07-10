@@ -1,23 +1,17 @@
-
 /* Create macros so that the matrices are stored in column-major order */
-
 #define A(i,j) a[ (j)*lda + (i) ]
 #define B(i,j) b[ (j)*ldb + (i) ]
 #define C(i,j) c[ (j)*ldc + (i) ]
 
 /* Routine for computing C = A * B + C */
-
 void AddDot4x4( int, double *, int, double *, int, double *, int );
-void AddDot( int, double *, int, double *, double * );
 
 void MY_MMult( int m, int n, int k, double *a, int lda, 
                                     double *b, int ldb,
                                     double *c, int ldc )
 {
-  int i, j;
-
-  for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C, unrolled by 4 */
-    for ( i=0; i<m; i+=4 ){        /* Loop over the rows of C */
+  for (int j=0; j<n; j+=4 ){ /* Loop over the columns of C, unrolled by 4 */
+    for (int i=0; i<m; i+=4 ){ /* Loop over the rows of C */
       /* Update C( i,j ), C( i,j+1 ), C( i,j+2 ), and C( i,j+3 ) in
 	 one routine (four inner products) */
 
@@ -25,7 +19,6 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
     }
   }
 }
-
 
 void AddDot4x4( int k, double *a, int lda,  double *b, int ldb, double *c, int ldc )
 {
