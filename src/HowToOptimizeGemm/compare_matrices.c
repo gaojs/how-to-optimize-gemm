@@ -4,15 +4,13 @@
 
 double compare_matrices( int m, int n, double *a, int lda, double *b, int ldb )
 {
-  int i, j;
-  double max_diff = 0.0, diff;
-
-  for ( j=0; j<n; j++ )
-    for ( i=0; i<m; i++ ){
-      diff = abs( A( i,j ) - B( i,j ) );
+  double max_diff = 0.0;
+  for (int i=0; i<m; i++ ){
+    for (int j=0; j<n; j++ ){
+      double diff = abs( A( i,j ) - B( i,j ) );
       max_diff = ( diff > max_diff ? diff : max_diff );
     }
-
+  }
   return max_diff;
 }
 

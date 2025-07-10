@@ -3,7 +3,7 @@ import numpy as np
 
 # Indicate the number of floating point operations that can be executed
 # per clock cycle
-nflops_per_cycle = 4
+nflops_per_cycle = 8
 
 # Indicate the number of processors being used (in case you are using a
 # multicore or SMP)
@@ -15,7 +15,7 @@ nprocessors = 1
 # Note: some processors have a "turbo boost" mode, which increases
 # the peak clock rate...
 #
-GHz_of_processor = 2.0
+GHz_of_processor = 4.6
 
 
 class Parser:
@@ -91,5 +91,5 @@ ax.legend()
 ax.set_xlim([old_data[0,0], old_data[-1,0]])
 ax.set_ylim([0, max_gflops])
 
-# fig.savefig("test.png")
-plt.show()
+fig.savefig("test.png")
+# plt.show()

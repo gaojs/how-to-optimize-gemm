@@ -1,6 +1,6 @@
 %
 % Clear all variables and close all graphs
-%
+% 清除所有变量并关闭所有图形
 
 clear all
 close all
@@ -8,7 +8,7 @@ close all
 %
 % Get max_gflops from /proc/cpuinfo by reading the parameters
 % set in file proc_parameters.m
-%
+% 通过读取proc_parameters文件，从/proc/cpuinfo获取max_gflops
 
 proc_parameters
 
@@ -16,7 +16,7 @@ max_gflops = nflops_per_cycle * nprocessors * GHz_of_processor;
 
 %
 % Read in the first data set and plot it.
-%
+% 读取第一个数据集并绘制出来。
 
 output_old
 
@@ -34,7 +34,7 @@ ylabel( 'GFLOPS/sec.' );
 
 %
 % Read in second data set and plot it.
-%
+% 读取第二个数据集并绘制出来。
 
 output_new
 
