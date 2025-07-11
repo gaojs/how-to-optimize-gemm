@@ -1,7 +1,7 @@
-/* Create macros so that the matrices are stored in column-major order */
-#define A(i,j) a[ (j)*lda + (i) ]
-#define B(i,j) b[ (j)*ldb + (i) ]
-#define C(i,j) c[ (j)*ldc + (i) ]
+/* Create macros so that the matrices are stored in row-major order */
+#define A(i,j) a[ (i)*lda + (j) ]
+#define B(i,j) b[ (i)*ldb + (j) ]
+#define C(i,j) c[ (i)*ldc + (j) ]
 
 /* Block sizes */
 #define mc 256
@@ -35,10 +35,12 @@ void InnerKernel( int m, int n, int k, double *a, int lda,
                                        double *c, int ldc, int first_time )
 {
   double packedA[ m * k ], packedB[ k*n ];
-  for (int j=0; j<n; j+=4 ){ /* Loop over the columns of C, unrolled by 4 */
+
+  for (int i=0; i<m; i+=4 ){ /* Loop over the rows of C */
+
     if ( first_time )
       PackMatrixB( k, &B( 0, j ), ldb, &packedB[ j*k ] );
-    for (int i=0; i<m; i+=4 ){ /* Loop over the rows of C */
+    for (int j=0; j<n; j+=4 ){ /* Loop over the columns of C, unrolled by 4 */
       /* Update C( i,j ), C( i,j+1 ), C( i,j+2 ), and C( i,j+3 ) in
 	    one routine (four inner products) */
       if ( j == 0 ) PackMatrixA( k, &A( i, 0 ), lda, &packedA[ i*k ] );

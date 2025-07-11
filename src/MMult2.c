@@ -1,7 +1,7 @@
-/* Create macros so that the matrices are stored in column-major order */
-#define A(i,j) a[ (j)*lda + (i) ]
-#define B(i,j) b[ (j)*ldb + (i) ]
-#define C(i,j) c[ (j)*ldc + (i) ]
+/* Create macros so that the matrices are stored in row-major order */
+#define A(i,j) a[ (i)*lda + (j) ]
+#define B(i,j) b[ (i)*ldb + (j) ]
+#define C(i,j) c[ (i)*ldc + (j) ]
 
 /* Routine for computing C = A * B + C */
 void AddDot( int, double *, int, double *, double * );
@@ -9,8 +9,8 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
                                     double *b, int ldb,
                                     double *c, int ldc )
 {
-  for (int j=0; j<n; j+=4 ){        /* Loop over the columns of C, unrolled by 4 */
-    for (int i=0; i<m; i+=1 ){        /* Loop over the rows of C */
+  for (int i=0; i<m; i+=1 ){        /* Loop over the rows of C */
+    for (int j=0; j<n; j+=4 ){        /* Loop over the columns of C, unrolled by 4 */
       /* Update the C( i,j ) with the inner product of the ith row of A
         and the jth column of B */
       AddDot( k, &A( i,0 ), lda, &B( 0,j ), &C( i,j ) );

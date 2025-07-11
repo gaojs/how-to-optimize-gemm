@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define A( i, j ) a[ (j)*lda + (i) ]
+#define A( i, j ) a[ (i)*lda + (j) ]
 
 void print_matrix( int m, int n, double *a, int lda )
 {
