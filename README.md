@@ -37,10 +37,12 @@ To be able to follow along with the below examples, you will want to download so
 为了能够按照以下示例进行操作，您需要下载一些例程，如设置页面上所述。
 Make sure that the makefile starts with the following lines:
 确保生成文件以以下行开头：
--------------------------------
+<pre>
+```
 OLD  := MMult0
 NEW  := MMult0
--------------------------------
+```
+</pre>
 This indicates that the performance of the version of matrix-matrix multiplication in MMult0.c is measured (by virtue of the statement OLD  :=0).
 这表明衡量了MMult0.c中矩阵矩阵乘法版本的性能（通过语句OLD:=0）。
 Next, to make sure that when plotting the graphs are properly scaled, set certain parameters in the file proc_parameters.m. See the comments in that file. (Setting these parameters will ensure that when plotting the y-axis ranges from 0 to the peak performance of the architecture.)
@@ -52,7 +54,7 @@ make run This will compile, link, and execute the test driver, linking to the im
 make run这将编译、链接和执行测试驱动程序，链接到MMult0.c中的实现。性能数据保存在output0.m文件中。
 more output0.m This will display the contents of the output file output_MMult0.m. It should look something like
 more output0.m这将显示输出文件output_MMult0.m的内容。它应该看起来像
--------------------------------
+```
 version = 'MMult0';
 MY_MMult = [
 40 1.163636e+00 0.000000e+00 
@@ -66,14 +68,15 @@ MY_MMult = [
 760 2.116985e-01 0.000000e+00 
 800 2.115609e-01 0.000000e+00 
 ];
--------------------------------
+```
 The first column equals the problem size. The second column the performance (in Gflops) when a matrix-matrix multiply with the indicated problem size m=n=k is executed. The last column reports the maximum absolute difference encountered between the implementation in REF_MMult.c and MMult0.c. It should be close to 0.00000e+00 although as different optimizations are added the difference may not be perfectly zero.
 第一列等于问题大小。第二列是执行矩阵矩阵乘以指示的问题大小m=n=k时的性能（单位为Gflops）。最后一列报告了REF_MMult.c和MMult0.c中的实现之间遇到的最大绝对差异。它应该接近0.00000e+00，尽管由于添加了不同的优化，差异可能不是完全为零。
 octave This will start up octave. Then, in octave,
--------------------------------
+octave 命令将启动Octave。然后，在Octave环境中，
+```
 octave:1> PlotAll        % this will create the plot
-// octave：1>PlotAll     %这将创建绘图
--------------------------------
+# octave：1>PlotAll     %这将创建绘图
+```
 I usually start up a separate xterm session, in which I keep octave running, so that every time I want to make a new graph, I can just execute 'PlotAll' in that session.
 我通常会启动一个单独的xterm会话，在这个会话中，我会保持octave运行，这样每次我想制作一个新的图形时，我都可以在该会话中执行“PlotAll”。
 The performance graph (on my 1.7GHz Intel Core i5 MacBook Air) looks something like
