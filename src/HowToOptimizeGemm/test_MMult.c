@@ -17,7 +17,7 @@ int main()
   double *a, *b, *c, *c_ref, *c_old;    
   
   printf( "MY_MMult = [\n" );    
-  for ( p=PFIRST; p<PLAST; p+=PINC ){
+  for ( p=PFIRST; p<=PLAST; p+=PINC ){
     m = ( M == -1 ? p : M );
     n = ( N == -1 ? p : N );
     k = ( K == -1 ? p : K );
